@@ -1,111 +1,92 @@
-//Código omitido
-
-<h1 class="container__titulo"><b class="container__titulo--negrito">Alura</b>Books</h1>
-
-//Código omitido
-
-//Código omitido
-
-<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
-
-//Código omitido
-
-//Código omitido
-
-:root
-    --cor-de-fundo: #EBECEE;
-    --branco: #FFFFFF;
-    --laranja:#EB9B00;
-    --azul-degrade: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
-    --fonte-principal: "Poppins";
-    --azul: #002F52;
-    --fonte-secundario: "Josefin Sans";
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site de Comida</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Meu Site de Comida</h1>
+            <input type="text" id="search-bar" placeholder="Pesquisar...">
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Receitas Deliciosas</h2>
+            <p>Aqui você encontra as melhores receitas para todas as ocasiões.</p>
+        </section>
+        <section>
+            <h2>Cardápio</h2>
+            <ul id="menu">
+                <li>Pizza Margherita</li>
+                <li>Hambúrguer Gourmet</li>
+                <li>Sushi de Salmão</li>
+                <li>Salada Caesar</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 Meu Site de Comida</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
 }
 
-//Código omitido
-
-//Código omitido
-
-@media screen and (min-width: 1024px) {
-
-    .container_titulo,
-    .container_titulo--negrito {
-        font-family: var(--fonte-secundario);
-        font-size: 30px;
-    }
-    
-    .container_titulo {
-        font-weight: 400;
-    }
-    
-    .container_titulo--negrito {
-        font-weight: 700;
-    }
-    
+header {
+    background-color: #ff6347;
+    color: white;
+    padding: 1em;
+    text-align: center;
 }
 
-//Código omitido
-
-//Código omitido
-
-.container __titulo {}
-    display: none
-}
-
-//Código omitido
-
-.container_titulo {
-    font-weight: 400;
-    display: block;
-}
-
-//Código omitido
-
-//Código omitido
-
-<ul class="opções">
-    <li class="opções_item">Categorias</li>
-    <li class="opções_item"><a href="#" class="opções_link">Favoritos</a></li>
-    <li class="opções_item"><a href="#" class="opções_link">Minha estante</a></li>
-</ul>
-
-//Código omitido
-
-//Código omitido
-
-.opções {
-    display: flex
-}
-
-//Código omitido
-
-.opções {
+nav {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.opções_item {
-    padding: 0 1em;
-    text-transform: uppercase;
+#search-bar {
+    padding: 0.5em;
+    font-size: 1em;
 }
 
-//Código omitido
-
-.opções__link {
-    text-decoration: none
+main {
+    padding: 1em;
 }
 
-//Código omitido
-
-:root {
-    --cor-de-fundo: #EBECEE;
-    --branco:	#FFFFFF;
-    --laranja:	#EB9B00;
-    --azul-degrade: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
-    --fonte-principal: "Poppins";
-    --azul:	#002F52;
-    --fonte-secundario: "Josefin Sans";
-    --preto: #000000;|
+section {
+    margin-bottom: 2em;
 }
 
-//Código omitido
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+document.getElementById('search-bar').addEventListener('input', function() {
+    let filter = this.value.toUpperCase();
+    let menuItems = document.getElementById('menu').getElementsByTagName('li');
+    
+    for (let i = 0; i < menuItems.length; i++) {
+        let item = menuItems[i];
+        if (item.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            item.style.display = "";
+        } else {
+            item.style.display = "none";
+        }
+    }
+});
 
